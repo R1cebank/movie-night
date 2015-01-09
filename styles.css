@@ -1,0 +1,20 @@
+ul {
+	height: 300px;
+	width: 100%;
+}
+
+ul {
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+ul {
+  background-color: #3f3f3f;
+  border-top: solid 1px #3f3f3f;
+  border-bottom: solid 1px #3f3f3f;
+  padding: 10px 30px;
+}
+li {
+  list-style: none;
+  color: #fff;
+}

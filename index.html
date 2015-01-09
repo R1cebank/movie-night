@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Night</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="container-fluid" ng-app ='Movie-Night'>
+    <header class="top">
+      <h1 class="text-center">Movie Night</h1>
+    </header>
+    <div ng-controller='MainController'>
+      <section class="container-fluid" ng-show="connected">
+        <h3 class="text-center"><small>{{ ip }}</small></h3>
+        <div class="row">
+          <div class="col-xs-6 messageList">
+            <ul mn-scroll-bottom="messages">
+              <li ng-repeat="message in messages"> {{ message.data }}</li>
+            </ul>
+            <p><form ng-submit="submitMessage()">
+              <input ng-model="messageInput" class='input-message form-control' placeholder='Enter a message'>
+            </form></p>
+          </div>
+          <div class="col-xs-6 video">
+            <video controls preload="none" id="videoWindow" mn-on-seek="onseek(time)" mn-on-play="videoPlayed()" mn-on-pause="videoPaused()" mn-control="player">
+              <source ng-src="http://localhost:9393" type="video/mp4">
+            </video>
+            <label for="videoFile">Choose video file</label>
+            <input id="videoFile" type="file" onchange="angular.element(this).scope().file_changed(this)"></input>
+          </div>
+        </div>
+      </section>
+      <section class="content" ng-if="!connected">
+        <p><button type="button" class="join-server btn btn-primary btn-lg btn-block" ng-click="showIPInput = !showIPInput" placeholder="Server IP">Join Server</button></p>
+        <p><form ng-submit="submitIP(ip)">
+          <input ng-model="ip" ng-show='showIPInput' class='input-serverip form-control' placeholder='Enter Server IP'>
+        </form></p>
+        <p><button type="button" class="create-server btn btn-default btn-lg btn-block" ng-click="createServer()">Create Server</button></p>
+      </section>
+    </div>
+    <script src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script src='bower_components/angular/angular.min.js'></script>
+    <script src='bower_components/angular-ui-utils/ui-utils.min.js'></script>
+    <script src='bower_components/socket.io-client/socket.io.js'></script>
+    <script src="js/client.js"></script>
+    <script src="js/server.js"></script>
+    <script src="js/videoServer.js"></script>
+    <script src='js/app.js'></script>
+  </body>
+</html>

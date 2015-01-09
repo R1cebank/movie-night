@@ -1,0 +1,53 @@
+{
+  "name": "movie-night",
+  "version": "0.0.1",
+  "description": "A simple scaffolding to build a node-webkit app from scratch",
+  "main": "index.html",
+  "window": {
+    "title": "Movie Night",
+    "toolbar": true,
+    "frame": true,
+    "resizable": true,
+    "position": "center",
+    "width": 800,
+    "height": 600
+  },
+  "repository": {
+    "url": "null"
+  },
+  "scripts": {
+    "run": "nwbuild --run ./",
+    "win": "nwbuild -p win ./",
+    "linux": "nwbuild -p linux32,linux64 ./",
+    "osx": "nwbuild -p osx ./"
+  },
+  "author": {
+    "name": "r1cebank",
+    "url": "r1cebank@yahoo.co.jp"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "express": "^4.10.7",
+    "http": "0.0.0",
+    "http-proxy": "^1.8.1",
+    "ip": "^0.3.2",
+    "jquery-browserify": "^1.8.1",
+    "node-uuid": "^1.4.2",
+    "node-webkit-builder": "*",
+    "socket.io": "^1.2.1",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.6.2",
+    "gulp-coffee": "^2.2.0",
+    "gulp-jade": "^0.10.0",
+    "gulp-less": "^2.0.1",
+    "gulp-notify": "^2.1.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-shell": "^0.2.5",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^1.0.2",
+    "gulp-watch": "^3.0.0"
+  }
+}
